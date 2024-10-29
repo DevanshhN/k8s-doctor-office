@@ -53,6 +53,16 @@ function App() {
   };
 
   return (
+    <div style={{ width: '100%', margin: 0 }}>
+    <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center', // Horizontally centers the container
+      alignItems: 'center', // Vertically centers the container
+      height: '100vh', // Full viewport height
+      width:'100%'
+    }}
+  >
     <Container maxWidth="md">
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
@@ -104,6 +114,8 @@ function App() {
         </List>
       </Box>
     </Container>
+    </Box>
+    </div>
   );
 }
 
