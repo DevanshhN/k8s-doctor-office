@@ -1,0 +1,4 @@
+Persistent Volumes for database
+Network Policy to restrict traffic to mongo only from the backend ( Disallow from Front-end )
+Resource requests and limits to restrict resource consumptions from pods
+

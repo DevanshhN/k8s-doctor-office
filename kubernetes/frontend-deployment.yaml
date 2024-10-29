@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: virtualizationmidterm_frontend
+        image: devanshnanani/virtualizationmidterm_frontend:latest
         ports:
         - containerPort: 3001
 ---
@@ -23,10 +23,12 @@ kind: Service
 metadata:
   name: frontend-service
 spec:
+  type: ClusterIP
   selector:
     app: frontend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3001
-  type: LoadBalancer
+      #nodePort: 30001
+  
