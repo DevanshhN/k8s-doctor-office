@@ -17,6 +17,25 @@ spec:
         image: devanshnanani/virtualizationmidterm_frontend:latest
         ports:
         - containerPort: 3001
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+        #livenessProbe:
+        #  httpGet:
+        #    path: /health
+        #    port: 3001
+        #  initialDelaySeconds: 10
+        #  periodSeconds: 5
+        #readinessProbe:
+        #  httpGet:
+        #    path: /health
+        #    port: 3001
+        #  initialDelaySeconds: 5
+        #  periodSeconds: 5
 ---
 apiVersion: v1
 kind: Service
@@ -30,5 +49,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3001
-      #nodePort: 30001
-  

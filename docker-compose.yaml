@@ -7,11 +7,15 @@ services:
     depends_on:
       - mongo
   frontend:
-    build: ./doctor-office-frontend
+    build: 
+      context: ./doctor-office-frontend
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
     depends_on:
       - backend
+    environment:
+      - NODE_ENV=development
   mongo:
     image: mongo
     ports:
