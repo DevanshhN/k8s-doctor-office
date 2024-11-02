@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100vw; /* Set the width to 100% of the viewport width */
+  height: 100vh; /* Optionally, set the height to 100% of the viewport height */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+  overflow: hidden; /* Optional: prevent overflow if needed */
+}
+
 a {
   font-weight: 500;
   color: #646cff;
