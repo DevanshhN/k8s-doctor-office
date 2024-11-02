@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mongo
-          image: 688567276396.dkr.ecr.us-east-2.amazonaws.com/doctor-office-mongodb:latest
+          image: 463470948847.dkr.ecr.us-east-1.amazonaws.com/aj47v/doctor-office-mongodb:v1
           ports:
             - containerPort: 27017
 ---

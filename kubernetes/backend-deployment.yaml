@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: 688567276396.dkr.ecr.us-east-2.amazonaws.com/doctor-office-backend:v1
+          image: 463470948847.dkr.ecr.us-east-1.amazonaws.com/aj47v/doctor-office-backend:v1
           ports:
             - containerPort: 3000
 ---
