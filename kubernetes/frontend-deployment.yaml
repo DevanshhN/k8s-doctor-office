@@ -13,10 +13,10 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: devanshnanani/virtualizationmidterm_frontend:latest
-        ports:
-        - containerPort: 3001
+        - name: frontend
+          image: 688567276396.dkr.ecr.us-east-2.amazonaws.com/doctor-office-frontend:v1
+          ports:
+            - containerPort: 3001
 ---
 apiVersion: v1
 kind: Service
@@ -31,4 +31,3 @@ spec:
       port: 80
       targetPort: 3001
       #nodePort: 30001
-  

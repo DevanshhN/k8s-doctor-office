@@ -13,10 +13,10 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
-        image: devanshnanani/virtualizationmidterm_backend:latest
-        ports:
-        - containerPort: 3000
+        - name: backend
+          image: 688567276396.dkr.ecr.us-east-2.amazonaws.com/doctor-office-backend:v1
+          ports:
+            - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
