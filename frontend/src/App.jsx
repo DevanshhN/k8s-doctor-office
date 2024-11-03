@@ -53,13 +53,13 @@ function App() {
   };
 
   return (
-    <div style={{ width: '100%', margin: 0 }}>
+    <div style={{ width: '100%', margin: '20px' }}>
     <Box
     sx={{
       display: 'flex',
       justifyContent: 'center', // Horizontally centers the container
       alignItems: 'center', // Vertically centers the container
-      height: '100vh', // Full viewport height
+      // height: '100vh', // Full viewport height
       width:'100%'
     }}
   >

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 463470948847.dkr.ecr.us-east-1.amazonaws.com/aj47v/doctor-office-frontend:v1.3
+          image: 463470948847.dkr.ecr.us-east-1.amazonaws.com/aj47v/doctor-office-frontend:v1.8
           ports:
             - containerPort: 3001
 ---
