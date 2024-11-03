@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: alb  
+    alb.ingress.kubernetes.io/scheme: internet-facing  
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:463470948847:certificate/2d836451-706c-429b-9b36-e396876d8387
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "StatusCode": "HTTP_301"}}' # Redirect HTTP to HTTPS
+
+spec:
+  ingressClassName: alb
+  rules:
+  - host: g2today.co
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-service
+            port: 
+              number: 3000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-service
+            port: 
+              number: 80
+  tls:
+  - hosts:
+      - g2today.co  # Replace with your domain if needed

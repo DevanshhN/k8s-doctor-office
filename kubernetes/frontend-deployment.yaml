@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: devanshnanani/virtualizationmidterm_frontend:latest
+        image: devanshnanani/virtualizationmidterm_frontend:v1
         ports:
         - containerPort: 3001
         resources:
