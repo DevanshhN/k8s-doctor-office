@@ -18,6 +18,11 @@ mongoose.connect("mongodb://mongo:27017/appointments", {
 .then(() => console.log('Connected to MongoDB'))
 .catch((error) => console.error('MongoDB connection error:', error));
 
+// Define the /health endpoint
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Routes
 app.use('/api/appointments', appointmentRoutes);
 
