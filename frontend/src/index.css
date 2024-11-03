@@ -18,7 +18,7 @@
   height: 100vh; /* Optionally, set the height to 100% of the viewport height */
   margin: 0; /* Remove any default margin */
   padding: 0; /* Remove any default padding */
-  overflow: hidden; /* Optional: prevent overflow if needed */
+  overflow: auto; /* Optional: prevent overflow if needed */
 }
 
 a {
