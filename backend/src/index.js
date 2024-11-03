@@ -23,6 +23,10 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
+app.get('/crash', (req, res) => {
+  throw new Error("Simulated crash for liveness probe");
+});
+
 // Routes
 app.use('/api/appointments', appointmentRoutes);
 
