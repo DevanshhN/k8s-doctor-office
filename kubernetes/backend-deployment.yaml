@@ -17,6 +17,19 @@ spec:
           image: 463470948847.dkr.ecr.us-east-1.amazonaws.com/aj47v/doctor-office-backend:v1
           ports:
             - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 15
 ---
 apiVersion: v1
 kind: Service
