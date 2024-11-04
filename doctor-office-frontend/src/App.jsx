@@ -11,7 +11,10 @@ import {
   Paper 
 } from '@mui/material';
 import { getAppointments, createAppointment } from './services/api';
-
+import './index.css'
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css"; 
 function App() {
   const [appointments, setAppointments] = useState([]);
   const [form, setForm] = useState({
@@ -51,25 +54,43 @@ function App() {
       [e.target.name]: e.target.value
     });
   };
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
   return (
-    <div style={{ width: '100%', margin: '20px' }}>
+    <div>
+    <div className="background">
+  {/* Your content goes here */}
+
+
+    <div style={{ width: '100%'}}>
     <Box
     sx={{
       display: 'flex',
       justifyContent: 'center', // Horizontally centers the container
       alignItems: 'center', // Vertically centers the container
       // height: '100vh', // Full viewport height
-      width:'100%'
+      width:'100%',
     }}
   >
-    <Container maxWidth="md">
+    <Container maxWidth="md" 
+      sx={{
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+        // Add any other styles you need here
+      }}
+    >
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Doctor's Office Appointments
         </Typography>
 
-        <Paper sx={{ p: 3, mb: 3 }}>
+        <Paper sx={{ p: 3, mb: 3,backgroundColor: 'rgba(255, 255, 255, 0.1)' }} >
           <form onSubmit={handleSubmit}>
             <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
               <TextField
@@ -95,7 +116,21 @@ function App() {
                 required
                 InputLabelProps={{ shrink: true }}
               />
-              <Button variant="contained" type="submit">
+              <Button variant="contained" type="submit" 
+              sx={{
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Black with 50% opacity
+                color: 'white', // Change text color to white for contrast
+                transition: 'background-color 0.3s ease', // Smooth transition for background color
+                '&:hover': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)', // Darker on hover
+                },
+                '&:active': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.9)', // Even darker on click
+                }
+              }}
+              
+              
+              >
                 Book Appointment
               </Button>
             </Box>
@@ -104,10 +139,16 @@ function App() {
 
         <List>
           {appointments.map((appt) => (
-            <ListItem key={appt._id} divider>
+            <ListItem key={appt._id} divider
+            sx={{
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', // Darker background on hover
+              },
+            }}>
               <ListItemText
                 primary={`${appt.patientName} with Dr. ${appt.doctorName}`}
                 secondary={new Date(appt.date).toLocaleString()}
+
               />
             </ListItem>
           ))}
@@ -115,6 +156,8 @@ function App() {
       </Box>
     </Container>
     </Box>
+    </div>
+    </div>
     </div>
   );
 }
